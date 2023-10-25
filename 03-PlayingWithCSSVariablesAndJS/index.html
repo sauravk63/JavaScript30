@@ -36,6 +36,10 @@
                 margin-bottom: 50px;
             }
 
+            #extra-spacing{
+                padding: 25px;
+            }
+
             a{
                 color: var(--base);
                 text-decoration: none;
@@ -50,14 +54,16 @@
     <body>
         <h3>Update CSS Variables with <span class="hl">JS</span></h3>
         <div class="controls">
-            <label for="spacing">Spacing:</label>
-            <input type="range" min="10" max="200" value="10" name="spacing" data-sizing="px">
+            <div id="extra-spacing">
+                <label for="spacing">Spacing:</label>
+                <input type="range" min="10" max="200" value="10" name="spacing" data-sizing="px">
 
-            <label for="blur">Blur:</label>
-            <input type="range" min="0" max="25" value="10" name="blur" data-sizing="px">
+                <label for="blur">Blur:</label>
+                <input type="range" min="0" max="25" value="10" name="blur" data-sizing="px">
 
-            <label for="base">Base Color:</label>
-            <input type="color" value="#ffc600" name="base">
+                <label for="base">Base Color:</label>
+                <input type="color" value="#ffc600" name="base">
+            </div>
 
             <img src="https://images.unsplash.com/photo-1536782376847-5c9d14d97cc0?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZXxlbnwwfHwwfHx8MA%3D%3D">
         
