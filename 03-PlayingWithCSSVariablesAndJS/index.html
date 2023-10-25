@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Scoped CSS variables and JS</title>
+        <style>
+
+            :root{
+                --base:yellow;
+                --spacing:10px;
+                --blur:10px;
+            }
+
+            img{
+                background: var(--base);
+                padding: var(--spacing);
+                filter: blur(var(--blur));
+            }
+
+            .hl{
+                color: var(--base);
+            }
+
+            body{
+                text-align: center;
+            }
+
+            body{
+                background: #4193c6;
+                font-family: 'helvetica neue', sans-serif;
+                font-weight: 100;
+                font-size: 50px;
+                color: white;
+            }
+
+            .controls{
+                margin-bottom: 50px;
+            }
+
+            a{
+                color: var(--base);
+                text-decoration: none;
+            }
+
+            input{
+                width: 100px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h3>Update CSS Variables with <span class="hl">JS</span></h3>
+        <div class="controls">
+            <label for="spacing">Spacing:</label>
+            <input type="range" min="10" max="200" value="10" name="spacing" data-sizing="px">
+
+            <label for="blur">Blur:</label>
+            <input type="range" min="0" max="25" value="10" name="blur" data-sizing="px">
+
+            <label for="base">Base Color:</label>
+            <input type="color" value="#ffc600" name="base">
+
+            <img src="https://images.unsplash.com/photo-1536782376847-5c9d14d97cc0?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZXxlbnwwfHwwfHx8MA%3D%3D">
+        
+        </div>
+        <script>
+            const inputs = document.querySelectorAll('.controls input');
+
+            function handleEvent(){
+                const suffix = this.dataset.sizing || '';
+                document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+            }
+
+            inputs.forEach(input => input.addEventListener('change', handleEvent));
+            inputs.forEach(input => input.addEventListener('mousemove', handleEvent));
+
+            
+        </script>
+
+    </body>
+</html>
