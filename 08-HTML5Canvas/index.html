@@ -62,10 +62,14 @@
     //for touch device 
     canvas.addEventListener('touchmove', draw);
     canvas.addEventListener('touchend', ()=>isDrawing = false);
-    canvas.addEventListener('touchstart', ()=>isDrawing = true);
+    canvas.addEventListener('touchstart', (e)=>{
+        isDrawing = true;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    });
     canvas.addEventListener('touchcancel', ()=>isDrawing = false);
 
-
+    console.info('Click and drag your mouse to color the canvas')
 
 
 
