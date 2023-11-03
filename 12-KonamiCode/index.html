@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Key Sequence Detection(KONAMI CODE)</title>
+        <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+    </head>
+    <body>
+        <h3><em>Type 'nanami' from keyboard...</em></h3>
+        <script>
+
+            const pressed = [];
+            const secretCode = 'nanami';
+    
+            window.addEventListener('keyup',(e)=>{
+                console.log(e.key);
+                pressed.push(e.key.toLocaleLowerCase());
+                pressed.splice(-secretCode.length-1, pressed.length-secretCode.length);
+                if(pressed.join('').includes(secretCode)){
+                    console.log('TIN TIN!');
+                    cornify_add();
+                }
+                console.log(pressed);
+            })
+        </script>
+    </body>
+
+    
+</html>
