@@ -84,7 +84,7 @@
 
     // how do we take a copy instead?
 
-    // const pers2 = Object.assign({}, person, {number: 44, age : 12});
+    const pers2 = Object.assign({}, person, {number: 44, age : 12});
     
     console.clear();
     pers2.color = 'RED';
@@ -102,7 +102,7 @@
         name: 'George',
         age: 32,
         socials:{
-            twitter : 'cust@twitter.com',
+            twitter : '@twittercust',
             facebook : 'web@dev.com'
         }
     }
@@ -115,7 +115,9 @@
 
     const dev2 = JSON.parse(JSON.stringify(cust));
 
-    
+    dev2.socials.twitter =  '@cooldude';
+    console.log(dev2.socials, cust.socials);
+
   </script>
 
 </body>
