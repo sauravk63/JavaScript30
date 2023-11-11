@@ -13,17 +13,18 @@
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+  // Initialize new speech recognition variable
+
   const recognition = new SpeechRecognition();
 
   recognition.interimResults = true;
-
 
   let p = document.createElement('p');
   const words = document.querySelector('.words');
   words.appendChild(p);
 
-  recognition.addEventListener('result',e=>{
-    const transcript = Array.from(e.results)
+  recognition.addEventListener('result',e=>{ // 'e' is not an Array here
+      const transcript = Array.from(e.results) 
     .map(result=>result[0])
     .map(result=>result.transcript)
     .join('');
@@ -36,7 +37,7 @@
         words.appendChild(p);
     }
 
-    if(transcript.includes('dog')){
+    if(transcript.includes('dog')){ // if the text in speech is detected as 'dog'
         console.log('🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺🐕‍🦺');
     }
   })
@@ -45,9 +46,6 @@
   
   recognition.addEventListener('end',recognition.start);
   
-  
-
-
 </script>
 
 
