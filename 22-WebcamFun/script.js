@@ -77,6 +77,14 @@ function redEffect(pixels) {
     return pixels;
   }
 
+
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        
+        takePhoto();
+    }
+}
+
 getVideo();
 
 video.addEventListener('canplay', paintToCanvas);
