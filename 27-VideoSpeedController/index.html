@@ -20,18 +20,20 @@
     const bar = document.querySelector('.speed-bar');
     const video = document.querySelector('.flex');
 
-    speed.addEventListener('mousemove',function(e){
+    function handleMove(e){
         const y = e.pageY - this.offsetTop;
         const percent = y/this.offsetHeight;
         const min = 0.4;
         const max = 4;
         const height = Math.round(percent * 100) + '%';
         const playbackRate = percent * (max-min)+min;
-        bar.style.height = height;
-        bar.textContent = playbackRate.toFixed(1) + 'x';
-        video.playbackRate = playbackRate;
-        console.log(height);
-    })
+        bar.style.height = height;  //sync bar height with mouse movement
+        bar.textContent = playbackRate.toFixed(1) + 'x';  //show speed text on speed bar
+        video.playbackRate = playbackRate;  //syn the video playback speed acc. to mouse movement over speed-bar
+        //console.log(height);
+    }
+
+    speed.addEventListener('mousemove',handleMove)
 </script>
 </body>
 </html>
