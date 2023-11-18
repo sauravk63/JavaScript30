@@ -59,15 +59,13 @@
     });
     slider.addEventListener('mousemove',(e)=>{
       //console.log(isDown);
-      if(!isDown) return;
+      if(!isDown) return; // stops running the fun
       //console.count('Does work');
       e.preventDefault;
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) * 3;
       slider.scrollLeft = scrollLeft - walk;
     });
-    
-
 </script>
 
   </body>
